@@ -13,7 +13,24 @@ const totalLikes = (blogs) => {
   return sum;
 };
 
+const favouriteBlog = (blogs) => {
+  const arrayOfLikes = [];
+
+  blogs.forEach((blog) => {
+    arrayOfLikes.push(blog.likes);
+  });
+
+  const maxNum = Math.max(...arrayOfLikes);
+
+  const foundObj = blogs.find((blog) => {
+    return blog.likes === maxNum;
+  });
+
+  return foundObj;
+};
+
 module.exports = {
   dummy,
   totalLikes,
+  favouriteBlog,
 };
