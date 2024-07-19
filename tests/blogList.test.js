@@ -82,6 +82,21 @@ test('verifies that the unique id is named id', async () => {
   assert(id.includes(blogs[0]._id));
 });
 
+test.only('adds new blog post and checks length of blog', async () => {
+  const blogAdded = {
+    title: ' removing soon',
+    author: 'Babajide Oluwaferanmi',
+    url: 'deletingsoon.com',
+    likes: 69,
+  };
+
+  await api.post('/api/blogs').send(blogAdded).expect(201);
+
+  const blogsInDb = await Blog.find({});
+
+  assert.strictEqual(blogsInDb.length, blogs.length + 1);
+});
+
 after(async () => {
   await mongoose.connection.close();
 });
