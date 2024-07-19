@@ -82,7 +82,7 @@ test('verifies that the unique id is named id', async () => {
   assert(id.includes(blogs[0]._id));
 });
 
-test.only('adds new blog post and checks length of blog', async () => {
+test('adds new blog post and checks length of blog', async () => {
   const blogAdded = {
     title: ' removing soon',
     author: 'Babajide Oluwaferanmi',
